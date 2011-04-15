@@ -4,3 +4,27 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+form ul li {
+  margin-left: 20px;
+  position: relative;
+  label.fix {
+    position: relative;
+    top: -5px;
+  }
+  label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    font-size: 18px;
+  }
+  input {
+    height: 26px;
+    font-size: 16px;
+    padding-left: 3px;
+    width: 200px;
+  }
+  margin-bottom: 10px;
+  input.checkbox {
+    width: 20px;
+  }
+}
