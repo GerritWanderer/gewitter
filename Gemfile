@@ -8,3 +8,5 @@ gem "compass"
 gem 'fancy-buttons'
 gem 'haml'
 gem 'haml-rails'
+
+gem 'devise', :git => 'git://github.com/plataformatec/devise', :branch => 'master'
