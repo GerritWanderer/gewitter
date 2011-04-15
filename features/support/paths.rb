@@ -10,26 +10,26 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-
+    when /the login page/
+      new_user_session_path
+    when /the logout page/
+      destroy_user_session_path
+    when /the registration page/
+      new_user_registration_path
+    when /the start page/
+      root_path
+      
+      
+      
     # the following are examples using path_to_pickle
-
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
       path_to_pickle $1
-
     when /^#{capture_model}(?:'s)? #{capture_model}(?:'s)? page$/   # eg. the forum's post's page
       path_to_pickle $1, $2
-
     when /^#{capture_model}(?:'s)? #{capture_model}'s (.+?) page$/  # eg. the forum's post's comments page
       path_to_pickle $1, $2, :extra => $3                           #  or the forum's post's edit page
-
     when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
       path_to_pickle $1, :extra => $2                               #  or the forum's edit page
-
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
 
     else
       begin
