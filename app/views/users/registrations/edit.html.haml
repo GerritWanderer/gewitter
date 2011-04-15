@@ -1,0 +1,28 @@
+%h2 Edit <%= resource_name.to_s.humanize
+- form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = devise_error_messages!
+  %ul
+    %li
+      = f.label :email
+      = f.email_field :email
+    %li
+      = f.label :username
+      = f.text_field :username
+    %li
+      = f.label :firstname
+      = f.text_field :firstname
+    %li
+      = f.label :lastname
+      = f.text_field :lastname
+    %li
+      = f.label :password
+      = f.password_field :password
+    %li
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    %li
+      = f.label :current_password
+      = f.password_field :current_password
+    %li.submit= f.submit "Sign up"
+    %li.back= link_to "Back", :back
+    
