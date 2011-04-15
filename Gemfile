@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.6'
 gem 'sqlite3'
 gem "builder", "~> 2.1.2"
+gem "faker"
 
 gem "compass"
 gem 'fancy-buttons'
@@ -18,4 +19,7 @@ group :development, :test do
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem "autotest"
+	gem 'email_spec'
+	gem 'factory_girl_rails'
+	gem 'pickle'
 end
