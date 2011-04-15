@@ -1,0 +1,20 @@
+## Aufgabe
+
+Wir würden von Ihnen gerne eine Webanwendung erstellt bekommen, die die
+folgenden Merkmale aufweist:
+
+  * Benutzer sollen auf der Plattform nach erfolgreicher Registrierung
+    in der Lage sein kurze Nachrichten (maximale Länge: 142 Zeichen)
+    zu schreiben.
+  * Diese Nachrichten sollen in umgekehrter chronologischer Reihenfolge
+    auf der Profilseite des Benutzers für alle Besucher der Seite
+    sichtbar sein.
+  * Jeder Benutzer soll darüber hinaus eine ebenfalls chronologische
+    Liste einsehen können, auf denen die Nachrichten von anderen
+    Benutzern zusätzlich zu seinen eigenen angezeigt werden.
+  * Diese Liste ist nur für den jeweiligen Nutzer selbst einsehbar.
+  * Damit Nachrichten von anderen Benutzern in dieser Liste auftauchen,
+    müssen diese zunächst "abonniert" werden.
+  * **Bonuspunkte** gibt es, wenn auch Nachrichten von Benutzern auftauchen,
+    die ich nicht abonniert habe, die mich aber in ihrer Nachricht
+    erwähnen.
