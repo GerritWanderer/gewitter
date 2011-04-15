@@ -23,4 +23,5 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'pickle'
 	gem 'launchy'
+	gem 'faker'
 end

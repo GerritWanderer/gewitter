@@ -19,6 +19,12 @@ module NavigationHelpers
     when /the start page/
       root_path
       
+    when /the profiles page/
+      '/profile/index'
+    when /my public profile page/
+      '/profile/exampleuser'
+    when /a profile page of a unknown user/
+      '/profile/exampleuser_who_doesnotexist'
       
       
     # the following are examples using path_to_pickle

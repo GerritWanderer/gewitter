@@ -40,7 +40,6 @@ Feature: Use authentication from devise
     And I press "Sign in"
     Then I should see "Signed in successfully."
     
-  @test
   Scenario: Sign in unsuccessfully
     Given I sign up as user
     And I am not authenticated
