@@ -17,7 +17,7 @@ Feature: Use authentication from devise
     And they click the first link in the email
     Then I should see "Your account was successfully confirmed"
     
-  Scenario: Sign up unsuccessfully
+  Scenario: Sign up unsuccessfully with invalid values
     Given I am not authenticated
     When I go to the registration page
     And I fill in "user_username" with "eu"
@@ -30,6 +30,19 @@ Feature: Use authentication from devise
     And I should see "Email is invalid"
     And I should see "Password doesn't match confirmation"
     And I should see "Password is too short (minimum is 6 characters)"
+    
+  Scenario: Sign up unsuccessfully with duplicate user
+    Given I sign up as user
+    Given I am not authenticated
+    When I go to the registration page
+    And I fill in "user_username" with "exampleuser"
+    And I fill in "user_email" with "user@example.org"
+    And I fill in "user_password" with "loremipsum"
+    And I fill in "user_password_confirmation" with "loremipsum"
+    And I press "Sign up"
+    Then I should see "2 errors prohibited"
+    And I should see "Username has already been taken"
+    And I should see "Email has already been taken"
     
   Scenario: Sign in successfully
     Given I sign up as user
@@ -49,14 +62,23 @@ Feature: Use authentication from devise
     And I press "Sign in"
     And I should see "Invalid username or password."
   
-  @wip
-  Scenario: Update Profile as authenticated User successfully
+  Scenario: Update profile a profile successfully
     Given I sign up as user
-    When I go to the works page
-    And I follow "Profile" within "div#navigation ul li.small"
+    When I go to the user edit page
     And I fill in "user_firstname" with "Bugs"
     And I fill in "user_lastname" with "Bunny"
     And I fill in "user_current_password" with "loremipsum"
     And I press "Update"
-    Then I should be on the root page
     And I should see "You updated your account successfully."
+    
+  Scenario: Try to update a profile with invalid input
+    Given I sign up as user
+    When I go to the user edit page
+    And I fill in "user_email" with "user@example.org"
+    And I fill in "user_current_password" with "wrongpassword"
+    And I press "Update"
+    Then I should see "Current password is invalid"
+    When I fill in "user_email" with "userexample.org"
+    And I fill in "user_current_password" with "loremipsum"
+    And I press "Update"
+    Then I should see "Email is invalid"

@@ -4,27 +4,57 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
-form ul li {
-  margin-left: 20px;
-  position: relative;
-  label.fix {
+@import "partials/base";
+@import "fancy-buttons";
+
+div#container { @include container }
+header {
+  height: 120px;
+  border-bottom: 6px solid black;
+  margin: 20px 0px;;
+  display: block;
+  h1 {
+    margin-bottom: 25px;
+  }
+  ul {
+    height: 25px;
+    margin-bottom: 25px;
+    li {
+      display: block;
+      float: left;
+      margin-right: 20px;
+    }
+  }
+}
+
+
+form ul {
+  li {
+    margin-left: 20px;
     position: relative;
-    top: -5px;
+    label.fix {
+      position: relative;
+      top: -5px;
+    }
+    label {
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      font-size: 18px;
+    }
+    input {
+      border: 1px solid black;
+      height: 26px;
+      font-size: 16px;
+      padding-left: 3px;
+      width: 280px;
+    }
+    margin-bottom: 10px;
+    input.checkbox { width: 20px; }
   }
-  label {
-    position: absolute;
-    top: 10px;
-    left: 5px;
-    font-size: 18px;
-  }
-  input {
-    height: 26px;
-    font-size: 16px;
-    padding-left: 3px;
-    width: 200px;
-  }
-  margin-bottom: 10px;
-  input.checkbox {
-    width: 20px;
+  li.submit input {
+    @include fancy-button(#2966a8);
+    height: auto;
+    width: 280px;
   }
 }

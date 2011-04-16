@@ -16,11 +16,13 @@ module NavigationHelpers
       destroy_user_session_path
     when /the registration page/
       new_user_registration_path
+    when /the user edit page/
+      edit_user_registration_path
     when /the start page/
       root_path
       
     when /the profiles page/
-      '/profile/index'
+      '/profiles'
     when /my public profile page/
       '/profile/exampleuser'
     when /a profile page of a unknown user/
