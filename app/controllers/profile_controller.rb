@@ -4,9 +4,20 @@ class ProfileController < ApplicationController
   end
 
   def show
-    @user = User.find_by_username!(params[:username])
-    rescue
-      render :error 
+    @message = Message.new if user_signed_in?
+    if params[:username].nil? && user_signed_in?
+      @user = current_user
+      @messages = @user.messages
+    else
+      begin
+        @user = User.find_by_username!(params[:username])
+        @messages = @user.messages
+      rescue
+        redirect_to profiles_path
+      end
+    end
   end
 
+  def subscribe
+  end
 end

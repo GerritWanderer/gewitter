@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :messages
   
   validates :username, :length => {:minimum => 3, :maximum => 29}, :uniqueness => true
   # Include default devise modules. Others available are:

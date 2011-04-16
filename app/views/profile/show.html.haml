@@ -1,1 +1,10 @@
 %h1 Profile of #{@user.username}
+= render 'messages/form' if user_signed_in?
+%ol
+  - @messages.each do |message|
+    %li
+      %span.meta
+        Author: #{link_to message.user.username, profile_path(message.user.username)} // Date: #{message.created_at}
+      %p= message.text
+      %span.actions
+        = link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete if user_signed_in? && message.user_id == current_user.id

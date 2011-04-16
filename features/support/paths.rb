@@ -22,7 +22,9 @@ module NavigationHelpers
       root_path
       
     when /the profiles page/
-      '/profiles'
+      profiles_path
+    when /my profile page/
+      profile_path
     when /my public profile page/
       '/profile/exampleuser'
     when /a profile page of a unknown user/

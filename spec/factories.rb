@@ -9,3 +9,7 @@ Factory.define :user do |f|
 	f.sign_in_count {1}
 	f.confirmed_at {Date.today.strftime("%Y-%m-%d 09:00")}
 end
+
+Factory.define :message do |f|
+	f.text {Faker::Lorem.sentence}
+end

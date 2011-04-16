@@ -3,7 +3,6 @@ Feature: Open profile pages of users
   As a guest
   I want to see all public details of a existing user
   
-  @test
   Scenario: List the 5 newest profiles
     Given 10 users exist
     And I am not authenticated
@@ -17,7 +16,7 @@ Feature: Open profile pages of users
     Then I should see "Profile of exampleuser"
   
   Scenario: Try to read a profile of a unknown user
-    Given I sign up as user
-    And I am not authenticated
+    Given 10 users exist
     When I go to a profile page of a unknown user
-    Then I should see "A profile error occurred"
+    Then I should be on the profiles page
+    And I should see the 5 newest profiles

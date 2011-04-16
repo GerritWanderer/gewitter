@@ -1,0 +1,13 @@
+= form_for(@message) do |f|
+  -if @message.errors.any?
+    #errors
+      %h2= "#{pluralize(@message.errors.count, "error")} prohibited this work from being saved:"
+      %ul
+        - @message.errors.full_messages.each do |msg|
+          %li= msg
+  %ul
+    %li
+      = f.label :text
+      = f.text_area :text
+    %li.submit
+      = f.submit "Create Message"

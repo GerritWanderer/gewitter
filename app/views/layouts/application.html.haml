@@ -2,9 +2,9 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "UTF-8"}/
-    %meta{:name => "description", :content => "Twitter-like rails application to qualify "}/
+    %meta{:name => "description", :content => "Twitter-like rails application to qualify"}/
     %meta{:name => "author", :content => "Gerrit Wanderer"}/
-    %title Gewitter
+    %title Gewitter // und gegen wen hast Du heute vor zu wettern?
     = stylesheet_link_tag("compiled/screen.css")
     = stylesheet_link_tag("compiled/#{controller.controller_name}") if File.exist?("tmp/stylesheets/compiled/#{controller.controller_name}.css")
     = javascript_include_tag :defaults
@@ -12,9 +12,10 @@
   %body
     #container
       %header
-        %h1 gewitter.de // und gegen wen hast Du heute vor zu wettern?
+        %h1 Gewitter // und gegen wen hast Du heute vor zu wettern?
         %ul
           %li= link_to "Home", root_path
+          %li= link_to "Activities", profiles_path
           - if user_signed_in?
             %li= link_to "Profile", edit_user_registration_path
             %li= link_to "Logout", destroy_user_session_path
