@@ -29,7 +29,8 @@ module NavigationHelpers
       '/profile/exampleuser'
     when /a profile page of a unknown user/
       '/profile/exampleuser_who_doesnotexist'
-      
+    when /a profile page of not_subscribed_user user/
+      '/profile/not_subscribed_user'
       
     # the following are examples using path_to_pickle
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page

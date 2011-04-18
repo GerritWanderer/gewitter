@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :messages
+  has_many :subscriptions
   
   validates :username, :length => {:minimum => 3, :maximum => 29}, :uniqueness => true
   # Include default devise modules. Others available are:
