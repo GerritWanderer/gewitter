@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class ProfileController < ApplicationController  
   def index
     @users = User.order('created_at desc').limit(5)
   end
@@ -25,9 +25,10 @@ class ProfileController < ApplicationController
     rescue
       redirect_to profiles_path
     end
+    subscription = Subscription.new(:user_id => current_user.id, :profile => subscribed_profile.id)
+    authorize! :create, subscription
     
-    subcription = Subscription.new(:user_id => current_user.id, :profile => subscribed_profile.id)
-    if subcription.save
+    if subscription.save
       redirect_to profile_path, :notice => "You have successfully subscribed"
     else
       redirect_to profile_path, :notice => "Error occurred"
@@ -40,6 +41,7 @@ class ProfileController < ApplicationController
     rescue
       redirect_to profiles_path
     end
+    authorize! :destroy, subscription
     redirect_to profile_path, :notice => 'Subscription was successfully deleted' if subscription.destroy
   end
 end

@@ -11,6 +11,7 @@ gem 'haml'
 gem 'haml-rails'
 
 gem 'devise', :git => 'git://github.com/plataformatec/devise', :branch => 'master'
+gem "cancan"
 
 group :development, :test do
 	gem "rspec-rails"
