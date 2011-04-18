@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
   
   def create
     if @message.save
+      mentions = User.all(:select => :username).map(&:username) & @message.text.split(/\W/)
+      mentions.each do |mention|
+        Mention.create!(:user_id => User.find_by_username(mention).id, :message_id => @message.id)
+      end
       redirect_to profile_path, :notice => 'Message was successfully created.'
     else
       @user = current_user

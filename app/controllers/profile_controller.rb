@@ -8,7 +8,7 @@ class ProfileController < ApplicationController
     if params[:username].nil? && user_signed_in?
       @user = current_user
       subscriptions = Subscription.find_all_by_user_id([@user.id], :select => :profile).map(&:profile)
-      @messages = Message.find_all_by_user_id(subscriptions.push(@user.id))
+      @messages = Message.find_all_by_user_id(subscriptions.push(@user.id)) + Mention.find_all_by_user_id(@user.id).map(&:message)
     else
       begin
         @user = User.find_by_username!(params[:username])
