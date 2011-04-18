@@ -1,0 +1,13 @@
+%ol
+  - @messages.each do |message|
+    %li
+      %span.meta
+        Author: #{link_to message.user.username, profile_path(message.user.username)} // Date: #{message.created_at}
+      %p= message.text
+      %span.actions
+        = link_to 'Delete this message', message, :confirm => 'Are you sure?', :method => :delete if user_signed_in? && message.user_id == current_user.id
+        - if user_signed_in? && current_user.id != message.user.id
+          -if Subscription.where(:user_id => current_user.id, :profile => message.user.id).empty?
+            = link_to 'Subscribe this user', subscribe_profile_path(message.user.username)
+          - elsif Subscription.where(:user_id => current_user.id, :profile => message.user.id)
+            = link_to 'Unsubscribe this user', unsubscribe_profile_path(message.user.username)

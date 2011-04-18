@@ -7,7 +7,16 @@
 @import "partials/base";
 @import "fancy-buttons";
 
-div#container { @include container }
+body { background-color: #efefef; }
+div#container {
+  @include container;
+  @include rounded;
+  @include shadow;
+  background-color: #d6d6d6;
+  margin-top: 20px;
+  padding: 20px;
+  
+}
 header {
   height: 75px;
   border-bottom: 6px solid black;
@@ -59,7 +68,7 @@ form ul {
     input.checkbox { width: 20px; }
   }
   li.submit input {
-    @include fancy-button(#2966a8);
+    @include fancy-button(#585858);
     height: auto;
     width: 280px;
   }
@@ -72,11 +81,31 @@ div#main {
   }
   ol {
     li {
+      span.meta {
+        @include roundedTop;
+        display: block;
+        margin-bottom: 10px;
+        background-color: #585858;
+        padding: 10px;
+        color: white;
+        a { color: white; }
+      }
+      span.actions {
+        display: block;
+        height: 25px;
+        margin: 10px 20px;
+        a {
+          @include fancy-button(#585858, 12px);
+        }
+      }
+      
+      
+      p { padding: 0px 20px; }
       @include rounded;
       border: 1px solid black;
-      padding: 20px;
       margin-bottom: 20px;
-    
+      background-color: white;
+      padding-bottom: 10px;
     }
   }
 }

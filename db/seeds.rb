@@ -5,7 +5,7 @@ user = User.create!(:username => 'your_name',
              :firstname => Faker::Name.first_name,
              :lastname => Faker::Name.last_name,
              :email => "your_name@example.org",
-             :password => "test123")
+             :password => "your_password")
 user.sign_in_count = 1
 user.confirmed_at = "2011-01-01 12:00:00"
 user.save

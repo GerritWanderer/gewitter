@@ -37,6 +37,7 @@ Feature: Open profile pages of users
   Scenario: Unsubcribe a profile successfully
     Given I sign up as user
     And a user exist with username: "not_subscribed_user"
+    And 5 messages exist with user_id: 2
     And a subscription exist with user_id: 1, profile: 2
     When I go to a profile page of not_subscribed_user user
     And I follow "Unsubscribe"
