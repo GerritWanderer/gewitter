@@ -1,7 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+# ----------------------------
+# Enter your account details -
+# ----------------------------
+user = User.create!(:username => 'your_username',
+             :firstname => Faker::Name.first_name,
+             :lastname => Faker::Name.last_name,
+             :email => "your_name@example.org",
+             :password => "your_password")
+user.sign_in_count = 1
+user.confirmed_at = "2011-01-01 12:00:00"
+user.save
+
+
+# create some dummy users
+10.times do
+	user = User.create!(:username => Faker::Name.first_name,
+	             :firstname => Faker::Name.first_name,
+	             :lastname => Faker::Name.last_name,
+	             :email => Faker::Internet.email,
+	             :password => "dummy_password")
+	user.sign_in_count = 1
+	user.confirmed_at = "2011-01-18 12:10:00"
+	user.save
+end
+
+# and create dummy messages of all users
+User.all.each do |user|
+	rand(30).times do
+	  username = rand(2)==1 ? User.first.username : User.all.shuffle.first.username
+	  message = Message.create!(:user_id => user.id, :text => "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. You know what I mean #{username} ?")
+	end
+end
