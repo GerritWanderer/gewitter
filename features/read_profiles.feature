@@ -7,7 +7,7 @@ Feature: Open profile pages of users
     Given 10 users exist
     And I am not authenticated
     When I go to the profiles page
-    Then I should see the 5 newest profiles
+    Then I should see the 10 latest messages
     
   Scenario: Read profile successfully
     Given I sign up as user
@@ -19,7 +19,7 @@ Feature: Open profile pages of users
     Given 10 users exist
     When I go to a profile page of a unknown user
     Then I should be on the profiles page
-    And I should see the 5 newest profiles
+    And I should see the 10 latest messages
     
   Scenario: Subcribe a profile successfully
     Given I sign up as user

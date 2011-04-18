@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   belongs_to :user
-  default_scope :order => 'created_at DESC', :limit => '20'
+  default_scope :order => 'created_at DESC', :limit => '10'
   after_save :create_mentions
   
   validates :text, :length => {:minimum => 3, :maximum => 142}

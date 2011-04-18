@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController  
   def index
-    @users = User.order('created_at desc').limit(5)
+    @message = Message.new if user_signed_in?
+    @messages = Message.all
   end
 
   def show

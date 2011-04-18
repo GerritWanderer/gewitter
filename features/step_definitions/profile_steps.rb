@@ -1,10 +1,7 @@
-Then(/^I should see the 5 newest profiles$/) do
-  users = find_models("user")
-  users = users.sort_by { |u| u["created_at"] }
-  users.slice!(0,5)
-  counter = 0
-  users.each do |user|
-    counter+=1
-    Then %{I should see "#{user.username}"}
+Then(/^I should see the 10 latest messages$/) do
+  messages = find_models("message")
+  messages = messages.sort_by { |u| u["created_at"] }.reverse
+  messages.each do |message|
+    Then %{I should see "#{message.username}"}
   end
 end

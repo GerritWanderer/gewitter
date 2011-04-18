@@ -6,6 +6,5 @@ Gewitter::Application.routes.draw do
   match 'profile/subscribe(/:username)' => 'profile#subscribe', :as => 'subscribe_profile'
   match 'profile/unsubscribe(/:username)' => 'profile#unsubscribe', :as => 'unsubscribe_profile'
   
-  get "home/index"
-  root :to => "home#index"
+  root :to => "profile#index"
 end

@@ -9,7 +9,7 @@
 
 div#container { @include container }
 header {
-  height: 120px;
+  height: 75px;
   border-bottom: 6px solid black;
   margin: 20px 0px;;
   display: block;
@@ -62,5 +62,21 @@ form ul {
     @include fancy-button(#2966a8);
     height: auto;
     width: 280px;
+  }
+}
+
+div#main {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  ol {
+    li {
+      @include rounded;
+      border: 1px solid black;
+      padding: 20px;
+      margin-bottom: 20px;
+    
+    }
   }
 }

@@ -1,11 +1,11 @@
 # ----------------------------
 # Enter your account details -
 # ----------------------------
-user = User.create!(:username => 'your_username',
+user = User.create!(:username => 'your_name',
              :firstname => Faker::Name.first_name,
              :lastname => Faker::Name.last_name,
              :email => "your_name@example.org",
-             :password => "your_password")
+             :password => "test123")
 user.sign_in_count = 1
 user.confirmed_at = "2011-01-01 12:00:00"
 user.save
@@ -24,9 +24,8 @@ user.save
 end
 
 # and create dummy messages of all users
-User.all.each do |user|
-	rand(30).times do
-	  username = rand(2)==1 ? User.first.username : User.all.shuffle.first.username
-	  message = Message.create!(:user_id => user.id, :text => "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. You know what I mean #{username} ?")
-	end
+100.times do
+  username = rand(10)==1 ? User.first.username : User.all.shuffle.first.username
+  message = Message.create!(:user_id => User.all.shuffle.first.id,
+                            :text => "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. You know what I mean #{username} ?")
 end

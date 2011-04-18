@@ -1,11 +1,11 @@
-%h1 Profile of #{@user.username}
+= render 'messages/form' if user_signed_in?
+
+%h2 Profile of #{@user.username}
 - if user_signed_in? && current_user.id != @user.id
   -if Subscription.where(:user_id => current_user.id, :profile => @user.id).empty?
     %h2 - #{link_to 'Subscribe', subscribe_profile_path(@user.username)}
   - elsif Subscription.where(:user_id => current_user.id, :profile => @user.id)
     %h2 - #{link_to 'Unsubscribe', unsubscribe_profile_path(@user.username)}
-  
-= render 'messages/form' if user_signed_in?
 %ol
   - @messages.each do |message|
     %li
