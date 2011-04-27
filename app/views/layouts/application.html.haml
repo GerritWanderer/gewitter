@@ -13,15 +13,16 @@
     #container
       %header
         %h1 Gewitter // und gegen wen hast Du heute vor zu wettern?
-        %ul
-          %li= link_to "Latest Activities", root_path
-          - if user_signed_in?
-            %li= link_to "Your Profile Page", profile_path
-            %li= link_to "Logout", destroy_user_session_path
-          - else
-            %li= link_to "Login", new_user_session_path
-            %li= link_to "Create Account", new_user_registration_path
-            %li= link_to "Password lost?", new_user_password_path
+        %nav
+          %ul
+            %li= link_to "Latest Activities", root_path
+            - if user_signed_in?
+              %li= link_to "Your Profile Page", profile_path
+              %li= link_to "Logout", destroy_user_session_path
+            - else
+              %li= link_to "Login", new_user_session_path
+              %li= link_to "Create Account", new_user_registration_path
+              %li= link_to "Password lost?", new_user_password_path
         .container#flash
           - flash.each do |key, value|
             %div{:class => key}= value
